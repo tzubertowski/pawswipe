@@ -87,7 +87,7 @@
 
       <div class="pt-4 border-t border-gray-100">
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-100">
-          <p class="text-sm font-semibold text-blue-800 mb-3 text-center">🏠 Dom tymczasowy w:</p>
+          <p class="text-sm font-semibold text-blue-800 mb-3 text-center">🏠 Aktualnie mieszkam w:</p>
           <a 
             :href="animal.shelter.website"
             target="_blank"
