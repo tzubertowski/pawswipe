@@ -1,0 +1,150 @@
+<template>
+  <div v-if="show && animal" class="fixed inset-0 bg-gradient-to-br from-orange-100 via-pink-100 to-rose-100 z-50 overflow-y-auto">
+    <div class="max-w-2xl mx-auto p-6 py-12">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-purple-800 mb-4">
+          Wspaniały wybór! 💜 {{ animal.name }} będzie zachwycony! 🎉
+        </h1>
+        <p class="text-lg text-purple-600 bg-purple-50 p-4 rounded-lg">
+          ✨ Adopcja wirtualna to fantastyczny sposób na wsparcie! Oto wszystkie niesamowite korzyści które na Ciebie czekają:
+        </p>
+      </div>
+
+      <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 mb-8 border-2 border-green-200">
+        <h2 class="text-xl font-bold text-green-800 mb-4 text-center">
+          💚 Pomóż już dziś {{ animal.name }}! 💚
+        </h2>
+        
+        <div class="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 mb-4">
+          <p class="text-yellow-800 font-bold text-center text-lg">
+            ⚠️ ADOPCJA WIRTUALNA JEST W BUDOWIE ⚠️
+          </p>
+          <p class="text-yellow-700 text-center mt-2">
+            Na razie wyślij pieniądze na konto poniżej - wkrótce uruchomimy pełny system!
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-lg p-4 mb-4 shadow-lg">
+          <h3 class="font-semibold text-green-700 mb-2 flex items-center gap-2">
+            <span class="text-xl">🏢</span> {{ animal.shelter.name }}
+          </h3>
+          <p class="text-sm text-gray-600 mb-2 flex items-center gap-2">
+            <span class="text-lg">💳</span> Dane do przelewu:
+          </p>
+          <div class="bg-gray-800 text-white p-3 rounded-lg font-mono text-sm border-2 border-gray-600">
+            <p><strong>Odbiorca:</strong> Gmina Miejska Iława</p>
+            <p><strong>Adres:</strong> ul. Niepodległości 13, 14-200 Iława</p>
+            <p><strong>Nr konta:</strong> 70 1160 2202 0000 0005 2001 5477</p>
+            <p><strong>Tytuł:</strong> DAROWIZNA SCHRONISKO - {{ animal.name }}</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4 mb-8">
+          <a 
+            :href="animal.shelter.website"
+            target="_blank"
+            class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+          >
+            <span class="text-lg">🌐</span> Strona schroniska
+          </a>
+          <button 
+            class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            @click="handleDonation"
+          >
+            <span class="text-lg">💝</span> Wesprzyj teraz
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 mb-8 border-2 border-purple-200">
+        <h3 class="text-xl font-bold text-purple-800 mb-4 text-center">🌟 Twój pakiet adopcji wirtualnej 🌟</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">📸</span>
+            <span><strong>Miesięczny album zdjęć</strong> z notatkami o codziennej aktywności {{ animal.name }}</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🖼️</span>
+            <span><strong>Drukowane kopie zdjęć</strong> - zamów swoje ulubione kadry!</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🏆</span>
+            <span><strong>Certyfikat adopcji wirtualnej</strong> z imieniem {{ animal.name }}</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">📋</span>
+            <span><strong>Cotygodniowe raporty zdrowia</strong> i postępów</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">📹</span>
+            <span><strong>Livestreamy na żywo</strong> z kojca/pokoju {{ animal.name }}</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🎂</span>
+            <span><strong>Kartki urodzinowe i świąteczne</strong> od {{ animal.name }}</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🛍️</span>
+            <span><strong>Ekskluzywne rabaty</strong> na produkty ze schroniska</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">⭐</span>
+            <span><strong>Priorytet przy prawdziwej adopcji</strong> w przyszłości</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🏥</span>
+            <span><strong>Sponsorowanie zabiegów weterynaryjnych</strong> dla {{ animal.name }}</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🎨</span>
+            <span><strong>Artystyczne rysunki</strong> od wolontariuszy</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">📰</span>
+            <span><strong>Newsletter z historiami sukcesu</strong> innych adopcji</span>
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="flex gap-4">
+        <button 
+          @click="continueBrowsing"
+          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
+        >
+          <span class="text-lg">👀</span> Przeglądaj dalej
+        </button>
+        <button 
+          @click="backToStart"
+          class="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
+        >
+          <span class="text-lg">⚙️</span> Zmień preferencje
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useAppStore } from '~/stores/useAppStore'
+
+const store = useAppStore()
+
+const show = computed(() => store.showInterestPage)
+const animal = computed(() => store.interestedAnimal)
+
+const continueBrowsing = () => {
+  store.closeInterestPage()
+}
+
+const backToStart = () => {
+  store.resetSession()
+}
+
+const handleDonation = () => {
+  if (animal.value) {
+    window.open(animal.value.shelter.website, '_blank')
+  }
+}
+</script>

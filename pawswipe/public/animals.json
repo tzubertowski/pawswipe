@@ -1,0 +1,120 @@
+{
+  "animals": [
+    {
+      "id": "bruno_001",
+      "name": "Bruno",
+      "age": 5,
+      "breed": "Mieszaniec",
+      "type": "Pies",
+      "sex": "Samiec",
+      "image": "/images/animals/bruno.jpg",
+      "description": "Mam głowę pełną pomysłów i zawsze znajdę sposób, jak najlepiej spędzić dzień. Czasem spacer, czasem dłuższa wyprawa, a czasem po prostu chill w domu – jestem mistrzem w układaniu planu idealnego. Ze mną jedno jest pewne - nudy nie ma! Ostatnio złapałem nową zajawkę na chill po podróżach – książki! 📖 Wiesz jak to jest z nowym hobby: najpierw podgryzanie rogu, a potem nagle się okazuje, że naprawdę wciąga. Teraz szukam kogoś, kto podrzuci mi tytuły warte skonsumowania 😉… albo zaprosi na wspólne przygody czy sesje czytania przy kocyku. W pakiecie ze mną dostajesz: błysk w oku, gotowość do przygód i solidną porcję przytulania. A Ty? Co dorzucisz od siebie?",
+      "personality": ["przedsiębiorczy", "kreatywny", "czuły"],
+      "interests": ["książki", "wspólne czytanie"],
+      "swipe_right_if": [
+        "masz listę książek \"do przeczytania\", której nigdy nie kończysz",
+        "chcesz inspiracji do planowania małych i dużych przygód",
+        "wierzysz, że dobry dzień zaczyna się od dobrego towarzystwa 🐾"
+      ],
+      "special_notes": "Nowa pasja: książki i wspólne czytanie",
+      "shelter": {
+        "name": "Schronisko w Iławie",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0mOowAQ1R5orzmJKSrE0DGSDbwJBEDrfXQ&s",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
+    },
+    {
+      "id": "sky_002",
+      "name": "Sky",
+      "age": 2,
+      "breed": "Owczarek niemiecki mix",
+      "type": "Pies",
+      "sex": "Samiec",
+      "image": "/images/animals/sky.jpg",
+      "description": "Przystojniak o szlachetnych rysach i bystrym spojrzeniu to cały ja! Mam w sobie elegancję klasyka, ale też iskrę odkrywcy – zawsze gotów, żeby dodać twojemu dniowi trochę akcji. Jeśli potrzebujesz treningu – tylko powiedz. Chętnie pomogę, bo energii mam pod dostatkiem i z radością się nią podzielę. Ale spokojnie, nie muszę być wymagający – jeśli ładnie poprosisz, potrafię też zwolnić tempo i dać ci oddech. Muszę ci coś wyznać - ostatnio miałem okazję oglądać \"CSI: Kryminalne zagadki Las Vegas\" i po prostu czuję, że to jest coś dla mnie! Mówię ci - mam nocha do ciężkich spraw i każdą rozwiążę, a żaden złoczyńca mi nie zwieje. Taki tylko mały problem – nie wiem od czego zacząć trening. Masz może jakieś rady, jak zostać detektywem? Nie pożałujesz jeśli sprzedasz mi dobrego tipa! Na pewno odwdzięczę się z nawiązką 😁",
+      "personality": ["inteligentny", "energiczny", "ambitny"],
+      "interests": ["trening do FBI", "agility"],
+      "swipe_right_if": [
+        "potrzebujesz kogoś, kto pomoże ci w szukaniu motywacji",
+        "chcesz być świadkiem (albo i partnerem) mojej epickiej historii \"from zero to hero\"",
+        "nie boisz się spojrzenia, które mówi \"zrobimy to razem\""
+      ],
+      "special_notes": "Tajemny plan: trening do FBI (albo przynajmniej agility 😎)",
+      "shelter": {
+        "name": "Schronisko w Iławie",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0mOowAQ1R5orzmJKSrE0DGSDbwJBEDrfXQ&s",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
+    },
+    {
+      "id": "kicius_003",
+      "name": "Kiciuś",
+      "age": "szarmancki dżentelmen w złotym wieku",
+      "breed": "Mieszaniec",
+      "type": "Pies",
+      "sex": "Samiec",
+      "image": "/images/animals/kicius.jpg",
+      "description": "Dystyngowany kawaler o pogodnym usposobieniu. Lubię spokojne spacery, długie rozmowy i popołudnia przy filiżance kawy lub herbaty. Zamiast patrzeć na świat – słucham go. W każdej melodii, w każdym głosie znajduję coś wyjątkowego, a obecność przyjaciela u mego boku to dla mnie najpiękniejsza muzyka. Nie szukam fajerwerków ani pośpiechu. Najbardziej cenię towarzystwo – czy to w parku, czy w domu, przy dobrym jazzowym kawałku albo klasyce, która koi serce. W pakiecie ze mną dostajesz: poczucie humoru, urok starej szkoły i gwarancję, że nikt nie będzie cię poganiał. Jestem melomanem, gawędziarzem i wiernym towarzyszem – gotów na wspólne chwile w rytmie twojego życia.",
+      "personality": ["łagodny", "muzyczny", "elegancki"],
+      "interests": ["muzyka", "klasyka", "jazz", "rozmowy z ludźmi"],
+      "motto": "Zamiast patrzeć – słucham, i dzięki temu każdy dzień ma własną melodię",
+      "swipe_right_if": [
+        "uważasz, że cisza z właściwą osobą też jest muzyką",
+        "lubisz klasyczne klimaty, elegancję i spokój",
+        "chcesz kawalera, który dotrzyma ci kroku w twoim tempie"
+      ],
+      "special_notes": "Pasja: muzyka – od klasyki, przez jazz, po rozmowy z ludźmi",
+      "shelter": {
+        "name": "Schronisko w Iławie",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0mOowAQ1R5orzmJKSrE0DGSDbwJBEDrfXQ&s",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
+    },
+    {
+      "id": "lila_004",
+      "name": "Lila",
+      "age": "młoda dorosła",
+      "breed": "Kot domowy",
+      "type": "Kot",
+      "sex": "Samica",
+      "image": "/images/animals/lila.jpg",
+      "description": "Ponoć ciekawość to pierwszy krok do kłopotów… ale ja zawsze uważam, że to krok w stronę dobrej historii. Jestem duszą towarzystwa, ale tylko gdy grono jest złożone z wybranych – cenię sobie bliskość, nie tłumy. Ponad wir zabawy, wolę rozmowy, wspólne czytanie czy analizowanie fabuły ulubionego kryminału. Gdy się rozkręcę, potrafię wciągnąć w długie dyskusje o tym, kto naprawdę jest winny – a uwierz, mam nosa do takich rzeczy 😉. Spokojna atmosfera, aromatyczna herbatka i ciepłe ramię o które można się oprzeć - to jest mój raj. Jedna bratnia dusza, z którą mogę dzielić małe rytuały dnia, jest dla mnie warta więcej niż setka znajomości. W pakiecie ze mną dostajesz: uważność, subtelne poczucie humoru i wieczory, które mają klimat.",
+      "personality": ["ciekawska", "inteligentna", "wybiórcza"],
+      "interests": ["kryminały", "zagadki"],
+      "swipe_right_if": [
+        "również lubisz ciszę z odpowiednią osobą obok",
+        "jedynym o czym marzysz to wspólne wieczory przy książkach lub filmach",
+        "nie masz nic przeciwko gdy rozwiążę zagadkę przed końcem fabuły i wszystko ci zdradzę"
+      ],
+      "special_notes": "Pasja: kryminały i zagadki",
+      "shelter": {
+        "name": "Schronisko w Iławie",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0mOowAQ1R5orzmJKSrE0DGSDbwJBEDrfXQ&s",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
+    },
+    {
+      "id": "pixie_005",
+      "name": "Pixie",
+      "age": "dopiero zaczynam swoją karierę",
+      "breed": "Kot domowy",
+      "type": "Kot",
+      "sex": "Samica",
+      "image": "/images/animals/pixie.jpg",
+      "description": "Jak tylko zobaczę lśniące włosy, od razu coś we mnie iskrzy – inspiracja porywa mnie całkowicie i nie spocznę, dopóki nie pozwolisz mi zamienić twojej fryzury w arcydzieło. Jasne, mój styl jest być może jeszcze… niedopracowany, ale za każdym razem wkładam w nie całe serce i dobrą energię. Efekt końcowy może i będzie bardziej awangardowy niż którekolwiek z nas się spodziewało, ale na pewno będziesz się wyróżniać w tłumie gdy skończę! W pakiecie ze mną dostajesz: spontaniczne metamorfozy, nieograniczoną kreatywność i wieczne poczucie, że coś się dzieje. Perfekcja? Może kiedyś. Pasja i zaangażowanie? Od pierwszego dnia!",
+      "personality": ["kreatywna", "namiętna", "spontaniczna"],
+      "interests": ["freestyle'owe fryzjerstwo"],
+      "swipe_right_if": [
+        "nie boisz się gorącego zapału mojej pasji",
+        "masz odwagę poddać się chwili twórczej inspiracji",
+        "wierzysz, że czasem chaos prowadzi do najlepszego efektu"
+      ],
+      "special_notes": "Pasja: freestyle'owe fryzjerstwo",
+      "shelter": {
+        "name": "Schronisko w Iławie",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd0mOowAQ1R5orzmJKSrE0DGSDbwJBEDrfXQ&s",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
+    }
+  ]
+}
