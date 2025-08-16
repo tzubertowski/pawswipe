@@ -2,8 +2,22 @@
   <div v-if="show" class="fixed inset-0 bg-gradient-to-br from-orange-100 via-pink-100 to-rose-100 flex items-center justify-center z-50 p-6">
     <div class="bg-white rounded-3xl max-w-sm w-full p-8 space-y-8 shadow-2xl">
       <div class="text-center">
-        <h1 class="text-3xl font-light text-gray-900 mb-2">PawSwipe</h1>
-        <p class="text-gray-500 text-sm">Znajdź swojego przyjaciela</p>
+        <div class="flex justify-center mb-4">
+          <img 
+            src="/images/shelter-logo.jpg" 
+            alt="Iławskie Schronisko dla zwierząt"
+            class="w-20 h-20 rounded-full object-cover border-4 border-blue-200 shadow-lg"
+          >
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900 mb-2">PawSwipe</h1>
+        <a 
+          href="https://www.facebook.com/schroniskoilawa/"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-800 font-semibold text-sm mb-1 inline-block transition-colors underline decoration-dotted underline-offset-2"
+        >
+          Schronisko dla bezdomnych zwierząt w Iławie
+        </a>
+        <p class="text-gray-500 text-xs">Znajdź swojego przyjaciela</p>
       </div>
       
       <div v-if="step === 1" class="space-y-6">

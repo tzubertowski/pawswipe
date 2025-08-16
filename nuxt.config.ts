@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     preset: 'static'
   },
   ssr: true,
+  vite: {
+    server: {
+      host: true,
+      allowedHosts: ['artur171.mikrus.xyz', 'srv39-30171.wykr.es']
+    }
+  },
   app: {
     head: {
       title: 'PawSwipe - Znajdź swojego przyjaciela',

@@ -68,6 +68,47 @@ export const useAppStore = defineStore('app', {
     loadAnimals(animals: Animal[]) {
       // Shuffle animals when loading to ensure random order every session
       this.animals = [...animals].sort(() => Math.random() - 0.5)
+      
+      // Check if there's a pet ID in the URL hash and navigate to it
+      this.checkUrlForPetId()
+    },
+
+    checkUrlForPetId() {
+      if (typeof window !== 'undefined') {
+        const hash = window.location.hash
+        if (hash && hash.startsWith('#')) {
+          const petId = hash.substring(1)
+          const animal = this.animals.find(a => a.id === petId)
+          if (animal) {
+            // Skip welcome dialog and go directly to this pet
+            this.showWelcomeDialog = false
+            this.preferences = {
+              searchType: 'browsing',
+              animalType: 'both'
+            }
+            // Show this specific pet by filtering out all others except this one
+            this.viewedAnimalIds = this.animals
+              .filter(a => a.id !== petId)
+              .map(a => a.id)
+          }
+        }
+      }
+    },
+
+    navigateToSpecificPet(petId: string) {
+      const animal = this.animals.find(a => a.id === petId)
+      if (animal) {
+        this.showWelcomeDialog = false
+        this.showInterestPage = false
+        this.preferences = {
+          searchType: 'browsing',
+          animalType: 'both'
+        }
+        // Reset viewed animals and only show the specific pet
+        this.viewedAnimalIds = this.animals
+          .filter(a => a.id !== petId)
+          .map(a => a.id)
+      }
     },
 
     swipeLeft(animalId: string) {

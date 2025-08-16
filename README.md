@@ -1,75 +1,81 @@
-# Nuxt Minimal Starter
+# PawSwipe 🐾
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern Tinder-style web application for animal shelter adoption and virtual sponsorship in Poland. Swipe through adorable animals and find your perfect companion or support them through virtual adoption.
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- **Swipe Interface**: Intuitive left/right swipe gestures to browse animals
+- **Virtual Adoption**: Support animals financially without taking them home
+- **Real Adoption**: Connect with shelters for permanent adoption
+- **Animal Profiles**: Detailed information including personality traits, interests, and health status
+- **Responsive Design**: Mobile-first design that works on all devices
+- **Shelter Integration**: Direct links to animal shelters across Poland
+
+## Tech Stack
+
+- **Framework**: Nuxt 3 (Vue.js)
+- **Styling**: Tailwind CSS
+- **State Management**: Pinia
+- **Build**: Static Site Generation (SSG)
+- **Deployment**: Render.com
+
+## Getting Started
+
+### Installation
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### Development
 
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+### Build for Production
 
-Build the application for production:
+Generate static site:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run generate
 ```
 
-Locally preview production build:
+The built files will be in `.output/public/` directory.
+
+### Preview Production Build
 
 ```bash
-# npm
 npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Project Structure
+
+```
+├── app/
+│   ├── components/
+│   │   ├── AnimalCard.vue      # Main swipe card component
+│   │   ├── SwipeContainer.vue  # Container for swipe functionality
+│   │   ├── WelcomeDialog.vue   # Initial user preferences
+│   │   └── InterestPage.vue    # Virtual adoption details
+│   ├── stores/
+│   │   └── useAppStore.ts      # Application state management
+│   └── app.vue                 # Root component
+├── public/
+│   ├── animals.json            # Animal data
+│   └── images/                 # Animal and shelter images
+└── nuxt.config.ts             # Nuxt configuration
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is created for demonstration purposes.
