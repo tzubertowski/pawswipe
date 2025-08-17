@@ -2,18 +2,33 @@
   <div v-if="show && animal" class="fixed inset-0 bg-gradient-to-br from-orange-100 via-pink-100 to-rose-100 z-50 overflow-y-auto">
     <div class="max-w-2xl mx-auto p-6 py-12">
       <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-purple-800 mb-4">
-          Wspaniały wybór! 💜 {{ animal.name }} będzie zachwycony! 🎉
+        <h1 class="text-3xl font-bold text-purple-800 mb-6">
+          Wspaniały wybór! 💜 {{ animal.name }} będzie {{ animal.sex === 'Samica' ? 'zachwycona' : 'zachwycony' }}! 🎉
         </h1>
-        <p class="text-lg text-purple-600 bg-purple-50 p-4 rounded-lg">
-          ✨ Adopcja wirtualna to fantastyczny sposób na wsparcie! Oto wszystkie niesamowite korzyści które na Ciebie czekają:
-        </p>
       </div>
 
       <div class="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 mb-8 border-2 border-green-200">
-        <h2 class="text-xl font-bold text-green-800 mb-4 text-center">
-          💚 Pomóż już dziś {{ animal.name }}! 💚
-        </h2>
+        <div class="flex items-center justify-center gap-6 mb-4">
+          <!-- Pet photo in heart border -->
+          <div class="relative flex-shrink-0">
+            <div class="w-28 h-28 bg-gradient-to-br from-pink-200 to-purple-300 rounded-full p-1 shadow-lg">
+              <div class="w-full h-full bg-white rounded-full p-1.5">
+                <img 
+                  :src="animal.image" 
+                  :alt="animal.name"
+                  class="w-full h-full object-cover rounded-full"
+                  @error="handleImageError"
+                >
+              </div>
+            </div>
+            <div class="absolute -top-1 -right-1 text-4xl">❤️</div>
+          </div>
+          
+          <!-- Title alongside image -->
+          <h2 class="text-xl font-bold text-green-800 text-center flex-1">
+            Pomóż już dziś {{ animal.name }}!
+          </h2>
+        </div>
         
         <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
           <p class="text-blue-800 font-semibold text-center text-base">
@@ -21,6 +36,9 @@
           </p>
           <p class="text-blue-700 text-center mt-2 leading-relaxed">
             Mimo, że dalej pracujemy nad systemem adopcji wirtualnej, zachęcamy do wysłania środków bezpośrednio pod numer konta <strong>{{ animal?.shelter.name }}</strong>.
+          </p>
+          <p class="text-blue-800 text-center mt-3 font-medium">
+            Nie zapomnij o pomocy dla {{ animal.name }}.
           </p>
           <div class="flex justify-center mt-3">
             <button 
@@ -166,22 +184,29 @@ const handleDonation = () => {
   }
 }
 
+const handleImageError = (e: Event) => {
+  const target = e.target as HTMLImageElement
+  target.src = 'https://via.placeholder.com/128x128/cccccc/666666?text=🐾'
+}
+
 const addCalendarReminder = () => {
   if (animal.value) {
-    // Set reminder for tomorrow at 10:00 AM
-    const tomorrow = new Date()
-    tomorrow.setDate(tomorrow.getDate() + 1)
-    tomorrow.setHours(10, 0, 0, 0)
+    // Set reminder for today at 10:00 AM
+    const today = new Date()
+    today.setHours(10, 0, 0, 0)
     
     // Format dates for Google Calendar
-    const startDate = tomorrow.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
-    const endDate = new Date(tomorrow.getTime() + 30 * 60000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z' // 30 minutes later
+    const startDate = today.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    const endDate = new Date(today.getTime() + 30 * 60000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z' // 30 minutes later
     
     const title = `Adopcja wirtualna - ${animal.value.name} - przypomnienie o przelewie`
     const details = `Przypomnienie o dokonaniu przelewu dla ${animal.value.name} z ${animal.value.shelter.name}.%0A%0ADane do przelewu:%0ANr konta: 70 1160 2202 0000 0005 2001 5477%0ATytuł: DAROWIZNA SCHRONISKO`
     const location = animal.value.shelter.name
     
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`
+    // Add recurrence rule for monthly reminder
+    const recurrence = 'RRULE:FREQ=MONTHLY'
+    
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&recur=${encodeURIComponent(recurrence)}`
     
     window.open(googleCalendarUrl, '_blank')
   }

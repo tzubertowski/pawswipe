@@ -14,7 +14,8 @@
         v-if="swipeDirection === 'left'"
         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
       >
-        <div class="bg-gray-900 text-white px-6 py-3 rounded-2xl font-semibold text-lg rotate-12">
+        <div class="bg-gray-900 text-white px-8 py-4 rounded-2xl font-semibold text-2xl rotate-12 flex items-center gap-3">
+          <span class="text-3xl">✕</span>
           POMIŃ
         </div>
       </div>
@@ -23,7 +24,8 @@
         v-if="swipeDirection === 'right'"
         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
       >
-        <div class="bg-gray-900 text-white px-6 py-3 rounded-2xl font-semibold text-lg -rotate-12">
+        <div class="bg-gray-900 text-white px-8 py-4 rounded-2xl font-semibold text-2xl -rotate-12 flex items-center gap-3">
+          <span class="text-3xl">♡</span>
           LUBIĘ!
         </div>
       </div>
