@@ -82,6 +82,10 @@ export const useAppStore = defineStore('app', {
           const petId = hash.substring(1)
           const animal = this.animals.find(a => a.id === petId)
           if (animal) {
+            // Update meta tags for this specific pet
+            const { updateMetaForPet } = useDynamicMeta()
+            updateMetaForPet(animal)
+            
             // Skip welcome dialog and go directly to this pet
             this.showWelcomeDialog = false
             this.preferences = {
@@ -100,6 +104,10 @@ export const useAppStore = defineStore('app', {
     navigateToSpecificPet(petId: string) {
       const animal = this.animals.find(a => a.id === petId)
       if (animal) {
+        // Update meta tags for this specific pet
+        const { updateMetaForPet } = useDynamicMeta()
+        updateMetaForPet(animal)
+        
         this.showWelcomeDialog = false
         this.showInterestPage = false
         this.preferences = {
@@ -136,6 +144,10 @@ export const useAppStore = defineStore('app', {
     },
 
     resetSession() {
+      // Reset meta tags to default
+      const { resetToDefaultMeta } = useDynamicMeta()
+      resetToDefaultMeta()
+      
       this.viewedAnimalIds = []
       this.currentAnimalIndex = 0
       this.showWelcomeDialog = true

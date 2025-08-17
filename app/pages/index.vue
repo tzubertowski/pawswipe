@@ -25,6 +25,11 @@ onMounted(async () => {
     const data = await response.json()
     console.log('Animals loaded:', data.animals.length)
     store.loadAnimals(data.animals)
+    
+    // Also listen for hash changes to update meta tags
+    window.addEventListener('hashchange', () => {
+      store.checkUrlForPetId()
+    })
   } catch (error) {
     console.error('Failed to load animals:', error)
   }
