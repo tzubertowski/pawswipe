@@ -17,11 +17,22 @@
         
         <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
           <p class="text-blue-800 font-semibold text-center text-base">
-            💙 Dziękujemy za zainteresowanie!
+            Dziękujemy za zainteresowanie!
           </p>
           <p class="text-blue-700 text-center mt-2 leading-relaxed">
             Mimo, że dalej pracujemy nad systemem adopcji wirtualnej, zachęcamy do wysłania środków bezpośrednio pod numer konta <strong>{{ animal?.shelter.name }}</strong>.
           </p>
+          <div class="flex justify-center mt-3">
+            <button 
+              @click="addCalendarReminder"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Dodaj przypomnienie do kalendarza
+            </button>
+          </div>
         </div>
         
         <div class="bg-white rounded-lg p-4 mb-4 shadow-lg">
@@ -152,6 +163,27 @@ const backToStart = () => {
 const handleDonation = () => {
   if (animal.value) {
     window.open(animal.value.shelter.website, '_blank')
+  }
+}
+
+const addCalendarReminder = () => {
+  if (animal.value) {
+    // Set reminder for tomorrow at 10:00 AM
+    const tomorrow = new Date()
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    tomorrow.setHours(10, 0, 0, 0)
+    
+    // Format dates for Google Calendar
+    const startDate = tomorrow.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    const endDate = new Date(tomorrow.getTime() + 30 * 60000).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z' // 30 minutes later
+    
+    const title = `Adopcja wirtualna - ${animal.value.name} - przypomnienie o przelewie`
+    const details = `Przypomnienie o dokonaniu przelewu dla ${animal.value.name} z ${animal.value.shelter.name}.%0A%0ADane do przelewu:%0ANr konta: 70 1160 2202 0000 0005 2001 5477%0ATytuł: DAROWIZNA SCHRONISKO`
+    const location = animal.value.shelter.name
+    
+    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`
+    
+    window.open(googleCalendarUrl, '_blank')
   }
 }
 </script>
