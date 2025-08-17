@@ -35,7 +35,8 @@ export const useAppStore = defineStore('app', {
     animals: [] as Animal[],
     showWelcomeDialog: true,
     showInterestPage: false,
-    interestedAnimal: null as Animal | null
+    interestedAnimal: null as Animal | null,
+    isLoadingNextCard: false
   }),
 
   getters: {
@@ -111,13 +112,20 @@ export const useAppStore = defineStore('app', {
       }
     },
 
-    swipeLeft(animalId: string) {
+    async swipeLeft(animalId: string) {
+      this.isLoadingNextCard = true
       this.viewedAnimalIds.push(animalId)
+      // Add a small delay to show the loader and allow smooth transition
+      await new Promise(resolve => setTimeout(resolve, 300))
+      this.isLoadingNextCard = false
     },
 
-    swipeRight(animal: Animal) {
+    async swipeRight(animal: Animal) {
+      this.isLoadingNextCard = true
       this.viewedAnimalIds.push(animal.id)
       this.interestedAnimal = animal
+      await new Promise(resolve => setTimeout(resolve, 300))
+      this.isLoadingNextCard = false
       this.showInterestPage = true
     },
 

@@ -1,6 +1,12 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-orange-100 via-pink-100 to-rose-100 p-6 flex items-center justify-center">
-    <div v-if="currentAnimal" class="w-full max-w-sm">
+  <div class="min-h-screen bg-gradient-to-br from-orange-100 via-pink-100 to-rose-100 py-6 px-6 flex items-center justify-center">
+    <div v-if="isLoading" class="w-full max-w-sm flex items-center justify-center">
+      <div class="bg-white rounded-3xl shadow-lg p-12 flex flex-col items-center">
+        <div class="animate-spin rounded-full h-16 w-16 border-4 border-pink-200 border-t-pink-500 mb-4"></div>
+        <p class="text-gray-600 text-sm">Ładuję następny profil...</p>
+      </div>
+    </div>
+    <div v-else-if="currentAnimal" class="w-full max-w-sm">
       <AnimalCard :animal="currentAnimal" />
     </div>
     
@@ -28,6 +34,7 @@ import { useAppStore } from '~/stores/useAppStore'
 
 const store = useAppStore()
 const currentAnimal = computed(() => store.currentAnimal)
+const isLoading = computed(() => store.isLoadingNextCard)
 
 const resetAndStartOver = () => {
   store.resetSession()

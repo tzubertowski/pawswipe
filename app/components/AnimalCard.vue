@@ -2,9 +2,9 @@
   <div 
     class="animal-card bg-white rounded-3xl shadow-lg overflow-hidden max-w-sm w-full mx-auto border border-gray-100 flex flex-col max-h-[85vh]"
     :style="cardStyle"
-    @touchstart="handleTouchStart"
-    @touchmove="handleTouchMove"
-    @touchend="handleTouchEnd"
+    @touchstart.passive="handleTouchStart"
+    @touchmove.passive="handleTouchMove"
+    @touchend.passive="handleTouchEnd"
     @mousedown="handleMouseDown"
     @mousemove="handleMouseMove"
     @mouseup="handleMouseUp"
@@ -40,7 +40,7 @@
         <div class="flex items-center gap-4 text-white/90">
           <div class="flex items-center gap-1.5">
             <span class="text-sm">🎂</span>
-            <span class="text-sm font-medium">{{ animal.age }} {{ ageLabel }}</span>
+            <span class="text-sm font-medium">{{ animal.age }}</span>
           </div>
           <div class="flex items-center gap-1.5">
             <span class="text-sm">{{ animal.type === 'Kot' ? '🐱' : '🐕' }}</span>
@@ -87,7 +87,7 @@
 
       <div class="pt-4 border-t border-gray-100">
         <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg border border-blue-100">
-          <p class="text-sm font-semibold text-blue-800 mb-3 text-center">🏠 Aktualnie mieszkam w:</p>
+          <p class="text-sm font-semibold text-blue-800 mb-3 text-center">🏠 Odwiedź mnie w:</p>
           <a 
             :href="animal.shelter.website"
             target="_blank"
@@ -213,13 +213,6 @@ const currentX = ref(0)
 const isDragging = ref(false)
 const swipeDirection = ref<'left' | 'right' | null>(null)
 
-const ageLabel = computed(() => {
-  const age = props.animal.age
-  if (age === 1) return 'rok'
-  if (age >= 2 && age <= 4) return 'lata'
-  return 'lat'
-})
-
 const cardStyle = computed(() => {
   const translateX = currentX.value - startX.value
   const rotation = translateX * 0.1
@@ -232,9 +225,10 @@ const cardStyle = computed(() => {
   }
 
   return {
-    transform: `translateX(${translateX}px) rotate(${rotation}deg)`,
+    transform: `translate3d(${translateX}px, 0, 0) rotate(${rotation}deg)`,
     opacity: opacity > 0.3 ? opacity : 0.3,
-    transition: isDragging.value ? 'none' : 'all 0.3s ease-out'
+    transition: isDragging.value ? 'none' : 'transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.3s ease-out',
+    willChange: isDragging.value ? 'transform' : 'auto'
   }
 })
 
@@ -315,7 +309,7 @@ const getShareUrl = () => {
 }
 
 const getShareText = () => {
-  return `Poznaj ${props.animal.name}! ${props.animal.age} ${ageLabel.value} ${props.animal.type.toLowerCase()} szuka domu. Sprawdź profil na PawSwipe! 🐾`
+  return `Poznaj ${props.animal.name}! ${props.animal.type} szuka domu. Sprawdź profil na PawSwipe! 🐾`
 }
 
 const shareOnFacebook = () => {
@@ -372,6 +366,12 @@ const copyLink = async () => {
 .animal-card {
   user-select: none;
   cursor: grab;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .animal-card:active {
