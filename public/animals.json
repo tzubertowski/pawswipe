@@ -115,6 +115,29 @@
         "logo": "/images/shelter-logo.jpg",
         "website": "https://www.facebook.com/schroniskoilawa/"
       }
+    },
+    {
+      "id": "borek_006",
+      "name": "Borek",
+      "age": "~1,5 roku",
+      "breed": "Mieszaniec",
+      "type": "Pies",
+      "sex": "Samiec",
+      "image": "https://i.imgur.com/gtosQ0t.jpeg",
+      "description": "Ponoć uśmiech to najkrótsza droga do czyjegoś serca – ja jednak wierzę, że można nim rozświetlić cały dzień. Z przyjaciółmi uwielbiam wspólny śmiech, jak i łzy wzruszenia wspólnie oglądając komedie romantyczne. A kiedy nikt nie patrzy, zapisuję kilka wersów w zeszycie – jeszcze nie poezja, ale każdy wiersz to mały krok w stronę marzeń. Moim planem na przyszłość jest psychologia – nie żeby zmieniać świat, tylko żeby lepiej rozumieć ludzi i momenty, które naprawdę mają znaczenie. W pakiecie ze mną dostajesz: uśmiech, drobne szaleństwa i kogoś kto zawsze wysłucha zarówno twojego śmiechu jak i trosk.",
+      "personality": ["wesoły", "romantyczny", "kreatywny", "empatyczny"],
+      "interests": ["poezja", "komedie romantyczne", "psychologia"],
+      "swipe_right_if": [
+        "śmiejesz się z komedii romantycznych, ale i tak je oglądasz",
+        "lubisz szczerość i prostą radość życia",
+        "chcesz przyjaciela, który najpierw rozśmieszy, a potem – wysłucha"
+      ],
+      "special_notes": "Pasja: zapisuję myśli wierszem, mam nadzieję, że kiedyś będzie można nazwać to poezją. Dopiero zaczynam, ale wiem, co to znaczy kochać życie",
+      "shelter": {
+        "name": "Iławskie Schronisko dla zwierząt",
+        "logo": "/images/shelter-logo.jpg",
+        "website": "https://www.facebook.com/schroniskoilawa/"
+      }
     }
   ]
 }

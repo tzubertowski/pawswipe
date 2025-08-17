@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="animal-card bg-white rounded-3xl shadow-lg overflow-hidden max-w-sm w-full mx-auto border border-gray-100 flex flex-col max-h-[85vh]"
+    class="animal-card bg-white rounded-3xl shadow-lg overflow-hidden max-w-sm w-full mx-auto border border-gray-100 flex flex-col h-full max-h-[calc(100vh-140px)]"
     :style="cardStyle"
     @touchstart.passive="handleTouchStart"
     @touchmove.passive="handleTouchMove"
