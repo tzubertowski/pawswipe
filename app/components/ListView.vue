@@ -30,9 +30,14 @@
           >
           <div class="flex-1 min-w-0">
             <h3 class="text-base font-bold text-gray-900 truncate mb-1">{{ animal.name }}</h3>
-            <span class="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
-              {{ animal.type === 'Kot' ? '🐱 Kot' : '🐕 Pies' }}
-            </span>
+            <div class="flex gap-2">
+              <span class="text-sm bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">
+                {{ animal.type === 'Kot' ? '🐱 Kot' : '🐕 Pies' }}
+              </span>
+              <span class="text-sm bg-purple-100 text-purple-700 px-2 py-1 rounded-full font-medium">
+                {{ animal.sex === 'Samiec' ? '♂️' : animal.sex === 'Samica' ? '♀️' : '❓' }} {{ animal.sex }}
+              </span>
+            </div>
           </div>
         </div>
       </div>

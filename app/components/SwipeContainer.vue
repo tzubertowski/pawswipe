@@ -41,7 +41,7 @@
       </div>
       
       <!-- List View -->
-      <div v-else class="w-full h-full">
+      <div v-else class="w-full max-w-sm h-full">
         <ListView />
       </div>
       
