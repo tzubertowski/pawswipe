@@ -147,7 +147,7 @@
           @click="backToStart"
           class="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
         >
-          <span class="text-lg">⚙️</span> Zmień preferencje
+          <span class="text-lg">⚙️</span> Zmień kryteria wyszukiwania
         </button>
       </div>
       

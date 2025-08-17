@@ -6,10 +6,15 @@
           <img 
             src="/images/shelter-logo.jpg" 
             alt="Iławskie Schronisko dla zwierząt"
-            class="w-20 h-20 rounded-full object-cover border-4 border-blue-200 shadow-lg"
+            class="w-20 h-20 rounded-full object-cover border-4 border-pink-200 shadow-lg"
           >
         </div>
-        <h1 class="text-2xl font-bold text-gray-900 mb-2">PawSwipe</h1>
+        <h1 class="text-2xl font-bold mb-2">
+          <span class="text-pink-600">Paw</span><span class="text-purple-600">Swipe</span>
+        </h1>
+        <p class="text-sm font-semibold text-gray-700 bg-white/60 backdrop-blur-sm inline-block px-3 py-1 rounded-full mb-3">
+          🐾 Miłość od dotknięcia łapką
+        </p>
         <a 
           href="https://www.facebook.com/schroniskoilawa/"
           target="_blank"
@@ -20,58 +25,7 @@
         <p class="text-gray-500 text-xs">Znajdź swojego przyjaciela</p>
       </div>
       
-      <div v-if="step === 1" class="space-y-6">
-        <div class="space-y-3">
-          <button
-            @click="selectSearchType('virtual')"
-            :class="searchType === 'virtual' ? 'bg-purple-500 text-white' : 'bg-purple-50 text-purple-700 hover:bg-purple-100'"
-            class="w-full p-4 rounded-2xl font-medium transition-all duration-200 flex items-center gap-4 border-0"
-          >
-            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-              <span class="text-purple-600">💜</span>
-            </div>
-            <div class="text-left flex-1">
-              <div class="font-semibold">Adopcja wirtualna</div>
-              <div class="text-sm opacity-70">Wesprzyj słodziaka!</div>
-            </div>
-          </button>
-          <button
-            @click="selectSearchType('adoption')"
-            :class="searchType === 'adoption' ? 'bg-green-500 text-white' : 'bg-green-50 text-green-700 hover:bg-green-100'"
-            class="w-full p-4 rounded-2xl font-medium transition-all duration-200 flex items-center gap-4 border-0"
-          >
-            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-              <span class="text-green-600">🏠</span>
-            </div>
-            <div class="text-left flex-1">
-              <div class="font-semibold">Adopcja</div>
-              <div class="text-sm opacity-70">Daj dom na zawsze</div>
-            </div>
-          </button>
-          <button
-            @click="selectSearchType('browsing')"
-            :class="searchType === 'browsing' ? 'bg-purple-500 text-white' : 'bg-purple-50 text-purple-700 hover:bg-purple-100'"
-            class="w-full p-4 rounded-2xl font-medium transition-all duration-200 flex items-center gap-4 border-0"
-          >
-            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-              <span class="text-purple-600">👀</span>
-            </div>
-            <div class="text-left flex-1">
-              <div class="font-semibold">Tylko przeglądam</div>
-              <div class="text-sm opacity-70">Poznaj nasze zwierzaki</div>
-            </div>
-          </button>
-        </div>
-        <button
-          @click="nextStep"
-          :disabled="!searchType"
-          class="w-full bg-pink-500 text-white p-4 rounded-2xl font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed hover:bg-pink-600 transition-colors"
-        >
-          Dalej
-        </button>
-      </div>
-
-      <div v-if="step === 2" class="space-y-6">
+      <div class="space-y-6">
         <div class="space-y-3">
           <button
             @click="selectAnimalType('cat')"
@@ -104,21 +58,13 @@
             <span class="font-semibold text-left flex-1">Wszystkie</span>
           </button>
         </div>
-        <div class="flex gap-3">
-          <button
-            @click="previousStep"
-            class="flex-1 bg-gray-100 text-gray-700 p-4 rounded-2xl font-medium hover:bg-gray-200 transition-colors"
-          >
-            Wstecz
-          </button>
-          <button
-            @click="startBrowsing"
-            :disabled="!animalType"
-            class="flex-1 bg-pink-500 text-white p-4 rounded-2xl font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed hover:bg-pink-600 transition-colors"
-          >
-            Rozpocznij
-          </button>
-        </div>
+        <button
+          @click="startBrowsing"
+          :disabled="!animalType"
+          class="w-full bg-pink-500 text-white p-4 rounded-2xl font-medium disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed hover:bg-pink-600 transition-colors"
+        >
+          Rozpocznij
+        </button>
       </div>
     </div>
   </div>
@@ -130,32 +76,16 @@ import { useAppStore } from '~/stores/useAppStore'
 
 const store = useAppStore()
 const show = ref(true)
-const step = ref(1)
-const searchType = ref<'adoption' | 'virtual' | 'browsing' | null>(null)
 const animalType = ref<'cat' | 'dog' | 'both' | null>(null)
-
-const selectSearchType = (type: 'adoption' | 'virtual' | 'browsing') => {
-  searchType.value = type
-}
 
 const selectAnimalType = (type: 'cat' | 'dog' | 'both') => {
   animalType.value = type
 }
 
-const nextStep = () => {
-  if (searchType.value) {
-    step.value = 2
-  }
-}
-
-const previousStep = () => {
-  step.value = 1
-}
-
 const startBrowsing = () => {
-  if (searchType.value && animalType.value) {
+  if (animalType.value) {
     store.setPreferences({
-      searchType: searchType.value,
+      searchType: 'browsing',
       animalType: animalType.value
     })
     show.value = false

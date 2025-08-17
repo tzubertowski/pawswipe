@@ -45,7 +45,23 @@
       <div v-if="filteredAnimals.length === 0" class="text-center py-12">
         <div class="text-6xl mb-4">🐾</div>
         <h3 class="text-lg font-semibold text-gray-600 mb-2">Brak zwierząt</h3>
-        <p class="text-gray-500">Spróbuj zmienić swoje preferencje</p>
+        <p class="text-gray-500 mb-4">Spróbuj zmienić swoje preferencje</p>
+        <button 
+          @click="changeSearchCriteria"
+          class="bg-pink-500 hover:bg-pink-600 text-white py-3 px-6 rounded-lg font-medium transition-all"
+        >
+          Zmień kryteria wyszukiwania
+        </button>
+      </div>
+      
+      <!-- Change criteria button for when there are animals -->
+      <div v-if="filteredAnimals.length > 0" class="text-center py-6 border-t border-gray-200">
+        <button 
+          @click="changeSearchCriteria"
+          class="bg-gray-100 hover:bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-medium transition-all"
+        >
+          Zmień kryteria wyszukiwania
+        </button>
       </div>
     </div>
   </div>
@@ -73,6 +89,10 @@ const openAnimalProfile = (animal: any) => {
 
 const handleLike = (animal: any) => {
   store.swipeRight(animal)
+}
+
+const changeSearchCriteria = () => {
+  store.resetSession()
 }
 
 const handleImageError = (e: Event) => {
