@@ -15,12 +15,12 @@
           💚 Pomóż już dziś {{ animal.name }}! 💚
         </h2>
         
-        <div class="bg-yellow-100 border-2 border-yellow-400 rounded-lg p-4 mb-4">
-          <p class="text-yellow-800 font-bold text-center text-lg">
-            ⚠️ ADOPCJA WIRTUALNA JEST W BUDOWIE ⚠️
+        <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-4">
+          <p class="text-blue-800 font-semibold text-center text-base">
+            💙 Dziękujemy za zainteresowanie!
           </p>
-          <p class="text-yellow-700 text-center mt-2">
-            Na razie wyślij pieniądze na konto poniżej - wkrótce uruchomimy pełny system!
+          <p class="text-blue-700 text-center mt-2 leading-relaxed">
+            Mimo, że dalej pracujemy nad systemem adopcji wirtualnej, zachęcamy do wysłania środków bezpośrednio pod numer konta <strong>{{ animal?.shelter.name }}</strong>.
           </p>
         </div>
         
@@ -35,7 +35,7 @@
             <p><strong>Odbiorca:</strong> Gmina Miejska Iława</p>
             <p><strong>Adres:</strong> ul. Niepodległości 13, 14-200 Iława</p>
             <p><strong>Nr konta:</strong> 70 1160 2202 0000 0005 2001 5477</p>
-            <p><strong>Tytuł:</strong> DAROWIZNA SCHRONISKO - {{ animal.name }}</p>
+            <p><strong>Tytuł:</strong> DAROWIZNA SCHRONISKO</p>
           </div>
         </div>
 
@@ -120,6 +120,13 @@
         >
           <span class="text-lg">⚙️</span> Zmień preferencje
         </button>
+      </div>
+      
+      <!-- Attribution notice -->
+      <div class="mt-6 p-3 bg-gray-50 rounded-lg border border-gray-200">
+        <p class="text-xs text-gray-500 text-center leading-relaxed">
+          Wszystkie zdjęcia i opisy zostały zrealizowane dla <strong>{{ animal?.shelter.name }}</strong> i są ich własnością.
+        </p>
       </div>
     </div>
   </div>

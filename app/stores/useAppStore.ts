@@ -36,7 +36,8 @@ export const useAppStore = defineStore('app', {
     showWelcomeDialog: true,
     showInterestPage: false,
     interestedAnimal: null as Animal | null,
-    isLoadingNextCard: false
+    isLoadingNextCard: false,
+    viewMode: 'swipe' as 'swipe' | 'list'
   }),
 
   getters: {
@@ -140,10 +141,15 @@ export const useAppStore = defineStore('app', {
       this.showWelcomeDialog = true
       this.showInterestPage = false
       this.interestedAnimal = null
+      this.viewMode = 'swipe'
       this.preferences = {
         searchType: null,
         animalType: null
       }
+    },
+
+    toggleViewMode() {
+      this.viewMode = this.viewMode === 'swipe' ? 'list' : 'swipe'
     }
   }
 })
