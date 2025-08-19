@@ -68,16 +68,16 @@
           </div>
         </div>
 
-        <div class="flex gap-4 mb-8">
+        <div class="flex flex-wrap sm:flex-nowrap gap-4 mb-8">
           <a 
             :href="animal.shelter.website"
             target="_blank"
-            class="flex-1 bg-green-500 hover:bg-green-600 text-white text-center py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            class="w-full bg-green-500 hover:bg-green-600 text-white text-center py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
           >
             <span class="text-lg">🌐</span> Strona schroniska
           </a>
           <button 
-            class="flex-1 bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
             @click="handleDonation"
           >
             <span class="text-lg">💝</span> Wesprzyj teraz
@@ -136,16 +136,16 @@
       </div>
 
 
-      <div class="flex gap-4">
+      <div class="flex gap-4 flex-wrap sm:flex-nowrap ">
         <button 
           @click="continueBrowsing"
-          class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
+          class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
         >
           <span class="text-lg">👀</span> Przeglądaj dalej
         </button>
         <button 
           @click="backToStart"
-          class="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
+          class="w-full bg-purple-500 hover:bg-purple-600 text-white py-3 px-6 rounded-lg font-medium transition-all transform hover:scale-105 shadow-md flex items-center justify-center gap-2"
         >
           <span class="text-lg">⚙️</span> Zmień kryteria wyszukiwania
         </button>
